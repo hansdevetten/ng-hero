@@ -8,10 +8,10 @@ import { HeroService } from './hero.service';
 @Component({
   moduleId: module.id,
   selector: 'hero-detail',
+  providers: [HeroService],
   templateUrl: 'hero-detail.component.html'
 })
 export class HeroDetailComponent implements OnInit {
-  @Input()
   hero: Hero;
 
   ngOnInit(): void {
