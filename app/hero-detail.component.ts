@@ -9,14 +9,16 @@ import { HeroService } from './hero.service';
   moduleId: module.id,
   selector: 'hero-detail',
   providers: [HeroService],
-  templateUrl: 'hero-detail.component.html'
+  templateUrl: 'hero-detail.component.html',
+  styleUrls: ['hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
+  public static idRouteParam: string = 'id';
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      let id = +params['id'];
+      let id = +params[HeroDetailComponent.idRouteParam];
       this.heroService.getHero(id).then(hero => this.hero = hero);
     });
   }
